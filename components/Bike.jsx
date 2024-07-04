@@ -36,7 +36,7 @@ const Bike = ({ bike }) => {
           <AddToCartBtn
             price_id={bike.price_id}
             name={bike.name}
-            currency="USD"
+            currency="INR"
             description={bike.description}
             images={bike.images}
             price={bike.price}

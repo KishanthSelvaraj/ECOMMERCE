@@ -9,7 +9,7 @@ const CardProvider = ({ children }) => {
       successUrl="http://localhost:3000/stripe/success"
       cancelUrl="http://localhost:3000/stripe/error"
       language="en-US"
-      currency="USD"
+      currency="INR"
       billingAddressCollection={true}
       shouldPersist={true}
     >

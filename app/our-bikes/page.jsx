@@ -23,7 +23,7 @@ const getData = async (slug) => {
 };
 const OurBikes = async () => {
   const bikes = await getData();
-// console.log(bikes);
+console.log(bikes);
   return (
     <div>
       <BikeCategories bikes={bikes} />
