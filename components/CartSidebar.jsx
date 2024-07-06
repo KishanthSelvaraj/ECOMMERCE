@@ -12,14 +12,15 @@ import { ScrollArea } from "./ui/scroll-area";
 import ChectoutBtn from "./ChectoutBtn";
 
 const CartSidebar = () => {
-  const {
+  let {
     cartCount,
     cartDetails,
     shouldDisplayCart,
     handleCartClick,
     totalPrice,
   } = useShoppingCart();
-// console.log(totalPrice);
+  // totalPrice=0
+console.log(totalPrice);
   return (
     <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
       <SheetContent>
@@ -46,7 +47,7 @@ const CartSidebar = () => {
           <div>
             <div className="flex justify-between font-semibold">
               <div className="uppercase mb-5">Total</div>
-              <div>${totalPrice}</div>
+              <div>₹{totalPrice}</div>
             </div>
             <ChectoutBtn/>
           </div>

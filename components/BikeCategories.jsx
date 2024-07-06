@@ -4,16 +4,18 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "./ui/label";
 import { Slider } from "./ui/slider";
 import Bike from "./Bike";
+
 const BikeCategories = ({ bikes }) => {
   const [category, setCategory] = useState("all");
   const [filteredBikes, setFilteredBikes] = useState([]);
-  const [price, setPrice] = useState(900);
+  const [price, setPrice] = useState(1000);
+
   useEffect(() => {
     const filtered = bikes.filter((bike) => {
       const categoryMatch =
         category === "all"
-          ? bikes
-          : bike.categories.some((categ) => categ.name === category);
+          ? true
+          : bike.category.some((categ) => categ.name === category);
       const priceMatch = bike.price <= price;
       return categoryMatch && priceMatch;
     });
@@ -31,53 +33,51 @@ const BikeCategories = ({ bikes }) => {
               className="flex flex-col gap-6 mb-12"
             >
               <div className="flex items-center space-x-2">
-                {/* <RadioGroupItem
+                <RadioGroupItem
                   value="all"
                   id="all"
                   onClick={() => setCategory("all")}
-                /> */}
+                />
                 <label htmlFor="all">all</label>
               </div>
               <div className="flex items-center space-x-2">
-                {/* <RadioGroupItem
+                <RadioGroupItem
                   value="road"
                   id="road"
                   onClick={() => setCategory("road")}
-                /> */}
+                />
                 <label htmlFor="road">road</label>
               </div>
               <div className="flex items-center space-x-2">
-                {/* <RadioGroupItem
+                <RadioGroupItem
                   value="professional"
                   id="professional"
                   onClick={() => setCategory("professional")}
-                /> */}
+                />
                 <label htmlFor="professional">professional</label>
               </div>
               <div className="flex items-center space-x-2">
-                {/* <RadioGroupItem
+                <RadioGroupItem
                   value="extreme"
                   id="extreme"
                   onClick={() => setCategory("extreme")}
-                /> */}
+                />
                 <label htmlFor="extreme">extreme</label>
               </div>
             </RadioGroup>
-            {/* price slider// */}
+            {/* price slider */}
             <div className="max-w-56">
               <div className="text-lg mb-4 font-medium">
                 Max Price:{" "}
                 <span className="text-accent font-semibold ml-2">{price}</span>
                 <span className="ml-2">
-                (  {filteredBikes.length > 1
-                    ? `${filteredBikes.length}  items`
-                    : filteredBikes === 0
-                      ? `${filteredBikes.length} items`
-                      : `${filteredBikes.length} item`})
+                  ({filteredBikes.length > 1
+                    ? `${filteredBikes.length} items`
+                    : `${filteredBikes.length} item`})
                 </span>
               </div>
               <Slider
-                defaultValue={[900]}
+                value={[price]}
                 max={1500}
                 step={1}
                 onValueChange={(val) => setPrice(val[0])}
