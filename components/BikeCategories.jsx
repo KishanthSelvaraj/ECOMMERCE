@@ -77,7 +77,7 @@ const BikeCategories = ({ bikes }) => {
                 </span>
               </div>
               <Slider
-                defaultValue={[1000]}
+                defaultValue={[900]}
                 max={1500}
                 step={1}
                 onValueChange={(val) => setPrice(val[0])}

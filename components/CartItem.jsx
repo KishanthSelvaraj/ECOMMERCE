@@ -5,7 +5,6 @@ import { useShoppingCart } from "use-shopping-cart";
 import { FaPlus, FaMinus, FaX } from "react-icons/fa6";
 
 const CartItem = ({ item }) => {
-  console.log(item,"fghnjm,");
   const { removeItem, incrementItem, decrementItem } = useShoppingCart();
   return (
     <div className="flex w-full justify-between mb-4 items-center h-[120px] border-b">
@@ -13,7 +12,7 @@ const CartItem = ({ item }) => {
       <div className="w-[110px] h-[110px] relative">
         {item.images?.[0] && (
           <Image
-            src={urlForImage(item.images[0]).url}
+            src={urlForImage(item[0].images[0])}
             fill
             priority
             sizes="(max-width: 110px) ,110px, 110px"
@@ -40,7 +39,7 @@ const CartItem = ({ item }) => {
               <FaPlus className="text-[10px]" />
             </button>
             <div className="font-semibold text-balance text-right">
-              ${item.price * item.quantity}
+              ₹{item.price * item.quantity}
             </div>
           </div>
         </div>

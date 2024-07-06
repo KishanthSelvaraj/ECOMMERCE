@@ -21,7 +21,7 @@ const getData = async () => {
 
 const PopularBikes = async () => {
   const bikes = await getData();
-  console.log(bikes)
+  // console.log(bikes)
   return (
     <>
       <section className="py-24">
